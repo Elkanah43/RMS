@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rent Management System</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header>
+        <h1>Rent Management System</h1>
+        <nav>
+            <a href="#" class="nav-link active" data-view="dashboard">Dashboard</a>
+            <a href="#" class="nav-link" data-view="tenants">Tenants</a>
+            <a href="#" class="nav-link" data-view="properties">Properties</a>
+        </nav>
+    </header>
+
+    <main>
+        <section id="dashboard-view" class="view active">
+            <h2>Dashboard</h2>
+            <div class="stats-container">
+                <div class="stat-card">
+                    <h3>Total Tenants</h3>
+                    <p id="total-tenants">0</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Available Units</h3>
+                    <p id="available-units">0</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Rents Paid (This Month)</h3>
+                    <p id="rent-paid">0</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Rents Unpaid (This Month)</h3>
+                    <p id="rent-unpaid">0</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="tenants-view" class="view">
+            <h2>Tenants</h2>
+            <button id="add-tenant-btn">Add New Tenant</button>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Contact</th>
+                        <th>Unit</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="tenant-list">
+                    </tbody>
+            </table>
+        </section>
+
+        <section id="properties-view" class="view">
+            <h2>Properties / Units</h2>
+            <button id="add-property-btn">Add New Unit</button>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Unit Name</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="property-list">
+                    </tbody>
+            </table>
+        </section>
+    </main>
+
+    <dialog id="tenant-modal">
+        <form id="tenant-form">
+            <h3 id="tenant-modal-title">Add Tenant</h3>
+            <input type="hidden" id="tenant-id">
+            <label for="tenant-name">Name:</label>
+            <input type="text" id="tenant-name" required>
+            <label for="tenant-contact">Contact:</label>
+            <input type="text" id="tenant-contact" required>
+            <label for="tenant-unit">Unit:</label>
+            <select id="tenant-unit" required></select>
+            <div class="modal-actions">
+                <button type="submit">Save</button>
+                <button type="button" id="cancel-tenant-btn">Cancel</button>
+            </div>
+        </form>
+    </dialog>
+
+    <dialog id="property-modal">
+        <form id="property-form">
+            <h3 id="property-modal-title">Add Property Unit</h3>
+            <label for="property-name">Unit Name (e.g., "Apt 101"):</label>
+            <input type="text" id="property-name" required>
+            <div class="modal-actions">
+                <button type="submit">Save</button>
+                <button type="button" id="cancel-property-btn">Cancel</button>
+            </div>
+        </form>
+    </dialog>
+    
+    <dialog id="rent-modal">
+        <form method="dialog">
+            <h3 id="rent-modal-title">Rent Status for Tenant</h3>
+            <div id="rent-status-container">
+                <!-- Rent status will be dynamically inserted here -->
+            </div>
+            <div class="modal-actions">
+                <button type="button" id="close-rent-btn">Close</button>
+            </div>
+        </form>
+    </dialog>
+
+
+    <script src="scripts.js"></script>
+</body>
+</html>
